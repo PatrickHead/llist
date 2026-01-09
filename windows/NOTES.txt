@@ -1,0 +1,18 @@
+Recipe for compiling llist for Windows on linux system with MINGW installed.
+
+Create a working directory for MINGW program development, such as:
+  $HOME/mingw-dev
+
+cp *.sh to <path-to>/mingw-dev
+cp Makefile to <path-to>/mingw-dev
+
+cd <path-to>/mingw-dev
+mkdir winllist
+mv Makefile winllist
+mkdir lib include bin
+
+cd to <path-to>/mingw-dev/winllist
+
+Compile llist for Windows:
+  AVL_DIR=<path-to-llist-package-root> make
+
