@@ -124,10 +124,10 @@ char *llist_position_type_to_string(llist_position position);
 llist *llist_new(void);
 llist *llist_dup(llist *ll);
 void llist_free(llist *ll);
-void llist_set_new(llist *ll, llist_node *(*new_func)(void));
-void llist_set_dup(llist *ll, llist_node *(*dup_func)(llist_node *node));
-void llist_set_free(llist *ll, void (*free_func)(llist_node *node));
-void llist_set_cmp(llist *ll, int (*cmp_func)(llist_node *a, llist_node *b));
+void llist_set_new(llist *ll, llist_new_node new_func);
+void llist_set_dup(llist *ll, llist_dup_node dup_func);
+void llist_set_free(llist *ll, llist_free_node free_func);
+void llist_set_cmp(llist *ll, llist_cmp_node cmp_func);
 void llist_add(llist *ll,
                llist_position position,
                llist_node *where,

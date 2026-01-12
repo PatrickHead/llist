@@ -172,7 +172,7 @@ exit:
 }
 
   /**
-   *  @fn void llist_set_new(llist *ll, llist_node *(*new_func)(void))
+   *  @fn void llist_set_new(llist *ll, llist_new_node new_func)
    *
    *  @brief Sets new node function in @p ll
    *
@@ -183,14 +183,13 @@ exit:
    *       Nothing.
    */
 
-void llist_set_new(llist *ll, llist_node *(*new_func)(void))
+void llist_set_new(llist *ll, llist_new_node new_func)
 {
   if (ll) ll->new_node = new_func;
 }
 
   /**
-   *  @fn void llist_set_dup(llist *ll,
-   *                         llist_node *(*dup_func)(llist_node *node))
+   *  @fn void llist_set_dup(llist *ll, llist_dup_node dup_func);
    *
    *  @brief Sets node duplication function in @p ll
    *
@@ -201,13 +200,13 @@ void llist_set_new(llist *ll, llist_node *(*new_func)(void))
    *       Nothing.
    */
 
-void llist_set_dup(llist *ll, llist_node *(*dup_func)(llist_node *node))
+void llist_set_dup(llist *ll, llist_dup_node dup_func)
 {
   if (ll) ll->dup_node = dup_func;
 }
 
   /**
-   *  @fn void llist_set_free(llist *ll, void (*free_func)(llist_node *node))
+   *  @fn void llist_set_free(llist *ll, llist_free_node free_func)
    *
    *  @brief Sets node free function in @p ll
    *
@@ -218,14 +217,13 @@ void llist_set_dup(llist *ll, llist_node *(*dup_func)(llist_node *node))
    *       Nothing.
    */
 
-void llist_set_free(llist *ll, void (*free_func)(llist_node *node))
+void llist_set_free(llist *ll, llist_free_node free_func)
 {
   if (ll) ll->free_node = free_func;
 }
 
   /**
-   *  @fn void llist_set_cmp(llist *ll,
-   *                         int (*cmp_func)(llist_node *a, llist_node *b))
+   *  @fn void llist_set_cmp(llist *ll, llist_cmp_node cmp_func)
    *
    *  @brief Sets node value comparison function in @p ll
    *
@@ -236,7 +234,7 @@ void llist_set_free(llist *ll, void (*free_func)(llist_node *node))
    *       Nothing.
    */
 
-void llist_set_cmp(llist *ll, int (*cmp_func)(llist_node *a, llist_node *b))
+void llist_set_cmp(llist *ll, llist_cmp_node cmp_func)
 {
   if (ll) ll->cmp_node = cmp_func;
 }
